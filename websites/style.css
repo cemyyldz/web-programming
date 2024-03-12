@@ -1,0 +1,30 @@
+/* Genel Stiller */
+body {
+  font-family: Arial, sans-serif;
+}
+
+/* Navbar Stilleri */
+.navbar {
+  border-bottom: 25px solid #0be465;
+}
+
+/* Ana Sayfa Stilleri */ 
+#home {
+  background-image: url('background.jpg');
+  background-size: cover;
+  background-position: center;
+  color: #000000;
+  padding: 100px 0;
+}
+
+/* Projeler Stilleri */
+#projects .card {
+  margin-bottom: 20px;
+}
+
+/* İletişim Formu Stilleri */
+#contact input[type="text"],
+#contact input[type="email"],
+#contact textarea {
+  margin-bottom: 10px;
+}
