@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Üye Kayıt Formu</title>
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+<style>
+body {
+    background-image: url('background.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    margin: 0;
+    padding: 40;
+}
+.form-container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 3px solid #f40c0c;
+    border-radius: 50px;
+    margin-top: 50px;
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="form-container">
+                <h2 class="text-center mb-4">Üye Kayıt Formu</h2>
+                <form id="uyeForm">
+                    <div class="form-group">
+                        <label for="eposta">E-posta:</label>
+                        <input type="email" class="form-control" id="eposta" name="eposta" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="ad">Ad:</label>
+                        <input type="text" class="form-control" id="ad" name="ad" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="soyad">Soyad:</label>
+                        <input type="text" class="form-control" id="soyad" name="soyad" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="cepTelefonu">Cep Telefonu:</label>
+                        <input type="tel" class="form-control" id="cepTelefonu" name="cepTelefonu" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="sifre">Şifre:</label>
+                        <input type="password" class="form-control" id="sifre" name="sifre" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="sifreTekrar">Şifre Tekrar:</label>
+                        <input type="password" class="form-control" id="sifreTekrar" name="sifreTekrar" required>
+                    </div>
+                    <button type="button" class="btn btn-primary btn-block" id="kaydetBtn">Kaydet</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+$(document).ready(function(){
+    $("#kaydetBtn").click(function(){
+        var eposta = $("#eposta").val();
+        var ad = $("#ad").val();
+        var soyad = $("#soyad").val();
+        var cepTelefonu = $("#cepTelefonu").val();
+        var sifre = $("#sifre").val();
+        var sifreTekrar = $("#sifreTekrar").val();
+        
+        var epostaFormat = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!epostaFormat.test(eposta)) {
+            alert("Lütfen geçerli bir e-posta adresi giriniz.");
+            return false;
+        }
+        
+        if (ad === "" || soyad === "" || cepTelefonu === "" || sifre === "" || sifreTekrar === "") {
+            alert("Lütfen tüm alanları doldurunuz.");
+            return false;
+        }
+        
+        if (sifre !== sifreTekrar) {
+            alert("Girdiğiniz şifreler birbiriyle eşleşmiyor.");
+            return false;
+        }
+        
+        var bilgiler = "E-posta: " + eposta + "\n";
+        bilgiler += "Ad: " + ad + "\n";
+        bilgiler += "Soyad: " + soyad + "\n";
+        bilgiler += "Cep Telefonu: " + cepTelefonu;
+        alert(bilgiler);
+        window.location.href = "page2.html";
+    });
+});
+</script>
+
+</body>
+</html>
